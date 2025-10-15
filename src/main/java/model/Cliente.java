@@ -16,7 +16,7 @@ public abstract class Cliente {
         this.cedula = cedula;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.listaFactura = listaFactura;
+        this.listaFactura = new ArrayList<>();
     }
 
     public int getCedula() {

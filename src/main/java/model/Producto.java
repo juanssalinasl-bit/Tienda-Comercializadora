@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Producto {
+public abstract class Producto {
     protected String codigo;
     protected String nombre;
     protected double precioUnitario;
@@ -10,14 +10,12 @@ public class Producto {
     protected ArrayList<DetalleFactura> listaDetalleFactura;
 
     public Producto(String codigo, String nombre, double precioUnitario, int cantidad, ArrayList<DetalleFactura> listaDetalleFactura) {
-        if(codigo.isBlank() || nombre.isBlank() ||  precioUnitario <= 0) {
-            throw new IllegalArgumentException("Datos ivalidos.");
-        }
+
         this.codigo = codigo;
         this.nombre = nombre;
         this.precioUnitario = precioUnitario;
         this.cantidad = cantidad;
-        this.listaDetalleFactura = listaDetalleFactura;
+        this.listaDetalleFactura = new ArrayList<>();
     }
 
 

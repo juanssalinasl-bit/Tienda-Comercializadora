@@ -71,7 +71,6 @@ public class Empresa {
         this.listaFacturas = listaFacturas;
     }
 
-    //registrar cliente
     public String registrarCliente(Cliente cliente) {
         Cliente existente = buscarCliente(cliente.getCedula());
         if (existente == null) {
@@ -82,7 +81,6 @@ public class Empresa {
         }
     }
 
-    //buscar cliente
     public Cliente buscarCliente(int cedula) {
         for (Cliente m : listaClientes) {
             if (m.getCedula() == cedula) {
@@ -92,7 +90,6 @@ public class Empresa {
         return null;
     }
 
-    //actualizar cliente
     public String actualizarCliente(Cliente cliente, String nuevoNombre, String nuevaDireccion) {
         Cliente a = buscarCliente(cliente.getCedula());
         if (a != null) {
@@ -103,7 +100,6 @@ public class Empresa {
         return "El cliente no existe";
     }
 
-    //eliminar cliente
     public String eliminarCliente(int cedula) {
         Cliente a = buscarCliente(cedula);
         if (a != null) {
@@ -113,7 +109,6 @@ public class Empresa {
         return "El cliente no existe";
     }
 
-    //mostrar cliente
     public String mostrarClientes() {
         if (listaClientes.isEmpty()) return "No hay clientes registrados";
         StringBuilder sb = new StringBuilder("=== LISTA DE CLIENTES ===\n");
@@ -123,7 +118,6 @@ public class Empresa {
         return sb.toString();
     }
 
-    //registrar producto
     public String registrarProducto(Producto producto) {
         Producto existente = buscarProducto(producto.getCodigo());
         if (existente == null) {
@@ -134,7 +128,6 @@ public class Empresa {
         }
     }
 
-    //buscar producto
     public Producto buscarProducto(String codigo) {
         for (Producto m : listaProductos) {
             if (m.getCodigo().equalsIgnoreCase(codigo)) {
@@ -144,7 +137,6 @@ public class Empresa {
         return null;
     }
 
-    //actualizar producto
     public String actualizarProducto(Producto producto, double nuevoPrecioUnitario, int nuevaCantidad) {
         Producto a = buscarProducto(producto.getCodigo());
         if (a != null) {
@@ -155,8 +147,7 @@ public class Empresa {
         return "El producto no existe";
     }
 
-    //eliminar producto
-    public String eliminarProfesor(Producto producto) {
+    public String eliminarProducto(Producto producto) {
         Producto a = buscarProducto(producto.getCodigo());
         if (a != null) {
             listaProductos.remove(a);
@@ -165,7 +156,6 @@ public class Empresa {
         return "El producto no existe";
     }
 
-    // mostrar producto
     public String mostrarProductos() {
         if (listaProductos.isEmpty()) return "No hay productos registrados.";
         StringBuilder sb = new StringBuilder("=== LISTA DE PRODUCTOS ===\n");
@@ -175,7 +165,6 @@ public class Empresa {
         return sb.toString();
     }
 
-    //registrar factura
     public String registrarFactura(Factura factura) {
         Factura existente = buscarFactura(factura.getCodigo());
         if (existente == null) {
@@ -186,7 +175,6 @@ public class Empresa {
         }
     }
 
-    //buscar factura
     public Factura buscarFactura(String codigo) {
         for (Factura m : listaFacturas) {
             if (m.getCodigo().equalsIgnoreCase(codigo)) {
@@ -196,7 +184,6 @@ public class Empresa {
         return null;
     }
 
-    //actualizar factura
     public String actualizarFactura(Factura factura, double nuevoTotal, int nuevaCantidadComprada) {
         Factura a = buscarFactura(factura.getCodigo());
         if (a != null) {
@@ -209,7 +196,6 @@ public class Empresa {
         return "La factura no existe";
     }
 
-    //eliminar factura
     public String eliminarFactura(Factura factura) {
         Factura a = buscarFactura(factura.getCodigo());
         if (a != null) {
@@ -219,7 +205,6 @@ public class Empresa {
         return "La factura no existe";
     }
 
-    // mostrar facturas
     public String mostrarFacturas() {
         if (listaFacturas.isEmpty()) return "No hay facturas registradas";
         StringBuilder sb = new StringBuilder("=== LISTA DE FACTURAS ===\n");

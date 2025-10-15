@@ -16,7 +16,7 @@ public class Factura {
         this.fecha = fecha;
         this.total = total;
         this.cliente = cliente;
-        this.listaDetalleFactura = new ArrayList<>();
+        this.listaDetalleFactura = listaDetalleFactura != null ? listaDetalleFactura : new ArrayList<>();
     }
 
     public String getCodigo() {
@@ -59,11 +59,20 @@ public class Factura {
         this.listaDetalleFactura = listaDetalleFactura;
     }
 
-    public double calcularTotal(double valor) {
-        double total = 0;
-        for (DetalleFactura detalleFactura : listaDetalleFactura) {
-
+    public double calcularTotal() {
+        double totalSinDescuento = 0;
+        for (DetalleFactura m : listaDetalleFactura) {
+            double subtotal = m.calcularSubTotal();
+            totalSinDescuento += subtotal;
         }
+        double descuento = cliente.calcularDescuento(totalSinDescuento);
+        total = totalSinDescuento - descuento;
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura: " + codigo + " [Fecha: " + fecha + ", Cliente: " + cliente.getNombre() +
+                ", Total: $" + total + "]";
     }
 }
